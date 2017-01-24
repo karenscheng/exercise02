@@ -101,6 +101,9 @@ reset.addEventListener('click', function(){
   while(result.firstChild){
     result.removeChild(result.firstChild);
   }
+
+  currentFruit = null;
+  currentDessert = null;
 });
 
 function makeResult(){
