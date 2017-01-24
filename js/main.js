@@ -43,34 +43,109 @@ var reset = document.querySelector('.Reset');
 
 var fruit = document.querySelector('.Holder--fruit');
 var dessert = document.querySelector('.Holder--dessert');
-var img = document.createElement('img');
+var result = document.querySelector('.Holder--result');
+var fruitimg = document.createElement('img');
+var dessertimg = document.createElement('img');
+var resultimg = document.createElement('img');
 
 apple.addEventListener('click', function() {
-  img.src = 'img/Apple.jpg';
-  fruit.appendChild(img);
+  fruitimg.src = 'img/Apple.jpg';
+  fruit.appendChild(fruitimg);
+  currentFruit = "apple";
+  makeResult();
 });
 
 banana.addEventListener('click', function() {
-  img.src = 'img/Banana.jpg';
-  fruit.appendChild(img);
+  fruitimg.src = 'img/Banana.jpg';
+  fruit.appendChild(fruitimg);
+  currentFruit = "banana";
+  makeResult();
 });
 
 orange.addEventListener('click', function() {
-  img.src = 'img/Orange.jpg';
-  fruit.appendChild(img);
+  fruitimg.src = 'img/Orange.jpg';
+  fruit.appendChild(fruitimg);
+  currentFruit = "orange";
+  makeResult();
 });
 
 icecream.addEventListener('click', function() {
-  img.src = 'img/IceCream.jpg';
-  dessert.appendChild(img);
+  dessertimg.src = 'img/IceCream.jpg';
+  dessert.appendChild(dessertimg);
+  currentDessert = "icecream";
+  makeResult();
 });
 
 cake.addEventListener('click', function() {
-  img.src = 'img/Cake.jpg';
-  dessert.appendChild(img);
+  dessertimg.src = 'img/Cake.jpg';
+  dessert.appendChild(dessertimg);
+  currentDessert = "cake";
+  makeResult();
 });
 
 pie.addEventListener('click', function() {
-  img.src = 'img/Pie.jpg';
-  dessert.appendChild(img);
+  dessertimg.src = 'img/Pie.jpg';
+  dessert.appendChild(dessertimg);
+  currentDessert = "pie";
+  makeResult();
 });
+
+reset.addEventListener('click', function(){
+
+  while(fruit.firstChild){
+    fruit.removeChild(fruit.firstChild);
+  }
+  while(dessert.firstChild){
+    dessert.removeChild(dessert.firstChild);
+  }
+  while(result.firstChild){
+    result.removeChild(result.firstChild);
+  }
+});
+
+function makeResult(){
+  if(currentFruit != null && currentDessert != null){
+    if(currentFruit == "apple"){
+      if(currentDessert == "icecream"){
+        resultimg.src = 'img/AppleIceCream.jpg';
+        result.appendChild(resultimg);
+      }
+      else if(currentDessert == "cake"){
+        resultimg.src = 'img/AppleCake.jpg';
+        result.appendChild(resultimg);
+      }
+      else if(currentDessert == "pie"){
+        resultimg.src = 'img/ApplePie.jpg';
+        result.appendChild(resultimg);
+      }
+    }
+    else if(currentFruit == "banana"){
+      if(currentDessert == "icecream"){
+        resultimg.src = 'img/BananaIceCream.jpeg';
+        result.appendChild(resultimg);
+      }
+      else if(currentDessert == "cake"){
+        resultimg.src = 'img/BananaCake.jpg';
+        result.appendChild(resultimg);
+      }
+      else if(currentDessert == "pie"){
+        resultimg.src = 'img/BananaPie.jpg';
+        result.appendChild(resultimg);
+      }
+    }
+    else if(currentFruit == "orange"){
+      if(currentDessert == "icecream"){
+        resultimg.src = 'img/OrangeIceCream.jpg';
+        result.appendChild(resultimg);
+      }
+      else if(currentDessert == "cake"){
+        resultimg.src = 'img/OrangeCake.jpg';
+        result.appendChild(resultimg);
+      }
+      else if(currentDessert == "pie"){
+        resultimg.src = 'img/OrangePie.jpg';
+        result.appendChild(resultimg);
+      }
+    }
+  }
+}
